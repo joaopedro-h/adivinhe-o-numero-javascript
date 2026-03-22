@@ -5,32 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="style.css" />
-    <title>Guess the number</title>
+    <script src="adivinhe.js" defer></script>
+
+    <title>Adivinhe o número</title>
+
   </head>
-  <body>
+  <body onload = "iniciar()">
     <main>
+
       <div id="welcomeScreen">
-        <h2>Guess the Number <br />1 - 100</h2>
+        <h2>Adivinhe o número. <br />1 - 100</h2>
       </div>
 
       <div id="gameArea">
+
         <section>
-          <h3 id="textOutput">Your Guess:</h3>
-          <input type="number" id="inputBox" min="1" max="100"/>
+          <h3 id="informacaoDaJogada">Sua jogada:</h3>
+          <input type="number" id="caixaDaJogada" min="1" max="100" onchange = "comparacaoNumeros()"/>
         </section>
+
         <section class="stats">
+
           <div class="info">
-            <p>Number of attempts:</p>
-            <span id="attempts">0</span>
+            <p>Número de tentativas:</p>
+            <span id="numeroTentativas"></span> 
           </div>
+
           <div class="info">
-            <p>Your guesses:</p>
-            <span id="guesses">0</span>
+            <p>Suas jogadas:</p>
+            <span id="jogadasUsuario"></span>
           </div>
+
         </section>
-        <button id="newGameButton">NEW GAME</button>
+
+        <button id="novoJogoBotao">NOVO JOGO</button>
       </div>
     </main>
-    <script src="index.js"></script>
+    
   </body>
 </html>
