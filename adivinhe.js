@@ -12,7 +12,7 @@ function iniciar() {  /* Função criada para gerar um número para máquina. */
     }
 
     numeroMaquina = numeros[Math.floor(Math.random() * numeros.length)];
-    console.log(numeroMaquina);
+    
 }
 
 function comparacaoNumeros() {  /* Função criada para coletar as jogadas do usuário. */
@@ -22,6 +22,16 @@ function comparacaoNumeros() {  /* Função criada para coletar as jogadas do us
 
     document.getElementById("jogadasUsuario").textContent = jogadasUsuario;
     
+    
+    if ((jogadaUsuario <= 0) || (jogadaUsuario > 100)) {  /* If adicionado para impedir que o usuário insira um número menor que 1 e maior que 100. */
+
+        document.getElementById("informacaoDaJogada").textContent = "Número inválido!"
+        tentativas++;
+        document.getElementById("numeroTentativas").textContent = tentativas;
+        document.getElementById("caixaDaJogada").setAttribute("Readonly" , "Readonly");
+        return;
+    }
+
 
     if (tentativas < maximoTentativas) {  /* Compara o número de tentativas com o limite de tentativas. */
         
@@ -61,7 +71,6 @@ function comparacaoNumeros() {  /* Função criada para coletar as jogadas do us
 function novoJogo() {  /* Função criada para dar reaload na página quando chamada. */
     window.location.reload();
 }
-
 
 const novoJogoBotao = document.getElementById("novoJogoBotao");  /* Variável armazena o ID do botão do HTML. */
 novoJogoBotao.addEventListener("click", novoJogo);  /* Sempre que o botão for clicado irá ser executado a função "novoJogo" */
